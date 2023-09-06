@@ -1,49 +1,49 @@
-import React from "react";
 import { sideMenus } from "../../data/dummy";
 import { useStateContext } from "../../contexts/ContextProvider";
+import { useColorContext } from "../../contexts/ColorContextProvider";
+
+import SidebarItem from "./SidebarItem";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
-  const { activeMenu, setActiveMenu, iconMenu, setIconMenu } =
-    useStateContext();
+  const { activeMenu, iconMenu, setIconMenu, hideMenu } = useStateContext();
+  const { currentColor } = useColorContext();
 
   return (
     <div
-      className={`${(activeMenu || !iconMenu) && "w-72"} ${
-        !activeMenu && iconMenu && "w-20"
-      } fixed sidebar flex flex-col  bg-white h-screen transition-all duration-300 ease-in-out shadow`}
+      className={
+    `${(activeMenu || !iconMenu) && "w-72"} ${
+      !activeMenu && iconMenu && !hideMenu && "w-20"
+    } ${
+      hideMenu && "w-0"
+    } fixed sidebar flex flex-col  bg-white dark:bg-dark-white-bg h-screen transition-all duration-300 ease-in-out shadow dark:shadow-gray-700`
+  }
       onMouseEnter={() => setIconMenu(false)}
       onMouseLeave={() => setIconMenu(true)}
     >
-      <div className=" text-2xl font-bold text-neutral-900 text-center py-5">
-        <span className="text-main">E.</span>
-        {(activeMenu || !iconMenu) && "Dash"}
-      </div>
-      <div className="px-2 overflow-auto ">
-        <div className=" hover:visible">
-          {sideMenus.map((sideMenu, key) => (
-            <div key={key} className={`${(activeMenu || !iconMenu) && "pb-3"}`}>
-              {(activeMenu || !iconMenu) && (
-                <h6 className="text-gray-400 font-medium m-3 mt-4 uppercase text-xs ">
-                  {sideMenu.title}
-                </h6>
-              )}
-
-              <ul>
-                {sideMenu.menus.map((menu, i) => (
-                  <li key={i}>
-                    <a
-                      className="flex items-center gap-3 pl-4  text-gray-700   hover:bg-light-gray py-2"
-                      href="#"
-                    >
-                      <span className="text-xl"> {menu.icon}</span>
-                      {(activeMenu || !iconMenu) && menu.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      <Link to="/">
+        <div className=" text-2xl font-bold text-neutral-900 dark:text-white text-center py-5">
+          <span style={{ color: currentColor }}>E.</span>
+          {(activeMenu || !iconMenu) && "Dash"}
         </div>
+      </Link>
+
+      <div className="px-2 overflow-auto ">
+        {sideMenus.map((sideMenu, key) => (
+          <div key={key} className={`${(activeMenu || !iconMenu) && "pb-2"}`}>
+            {(activeMenu || !iconMenu) && (
+              <h6 className="text-gray-400 dark:text-gray-300 mx-3 mt-4 uppercase text-xs ">
+                {sideMenu.title}
+              </h6>
+            )}
+
+            <ul>
+              {sideMenu.menus.map((menu, i) => (
+                <SidebarItem key={i} menu={menu} />
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   );

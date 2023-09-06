@@ -5,14 +5,17 @@ const StateContext = createContext();
 export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [iconMenu, setIconMenu] = useState(true);
-  const [currentColor, setCurrentColor] = useState("#03C9D7");
+  const [hideMenu, setHideMenu] = useState(false);
   const [themeSettings, setThemeSettings] = useState(false);
+  
   const [searchInput, setSearchInput] = useState("");
   const [searchCard, setSearchCard] = useState(false);
   const [profileOptionList, setProfileOptionList] = useState(false);
-  const [modeOption, setModeOption] = useState(false);
+  const [modeOption, setModeOption] = useState("light");
   const [notificationOption, setNotificationOption] = useState(false);
   const [screenSize, setScreenSize] = useState(0);
+
+  
 
   return (
     <StateContext.Provider
@@ -21,8 +24,6 @@ export const ContextProvider = ({ children }) => {
         setActiveMenu,
         iconMenu,
         setIconMenu,
-        currentColor,
-        setCurrentColor,
         themeSettings,
         setThemeSettings,
         searchInput,
@@ -37,6 +38,9 @@ export const ContextProvider = ({ children }) => {
         setNotificationOption,
         screenSize,
         setScreenSize,
+        hideMenu,
+        setHideMenu,
+       
       }}
     >
       {children}

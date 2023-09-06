@@ -2,15 +2,10 @@ import React, { useRef } from "react";
 import { IoClose } from "react-icons/io5";
 import { useStateContext } from "../../contexts/ContextProvider";
 
-function SearchCard() {
-  const { setSearchCard } = useStateContext();
-
+function SearchCard({ onCloseSearchCard }) {
   return (
     <>
-      <IoClose
-        className="absolute top-4 right-4"
-        onClick={() => setSearchCard(false)}
-      />
+      <IoClose className="absolute top-4 right-4" onClick={onCloseSearchCard} />
       <div className="pb-5">
         <h6 className="text-gray-400 font-semibold pb-2 text-xs uppercase">
           Recent Search
