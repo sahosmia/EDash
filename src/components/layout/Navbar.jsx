@@ -4,11 +4,8 @@ import { BsGearFill } from "react-icons/bs";
 import { TbAlignJustified } from "react-icons/tb";
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineDarkMode } from "react-icons/md";
-import { PiSignInBold } from "react-icons/pi";
 import { HiOutlineSun } from "react-icons/hi";
 import {
-  BiChevronDown,
-  BiChevronUp,
   BiBell,
   BiSolidUser,
   BiSolidEditAlt,
@@ -19,7 +16,7 @@ import {
 import SearchCard from "../dropdown/SearchCard";
 import { useStateContext } from "../../contexts/ContextProvider";
 import { useAuthContext } from "../../contexts/AuthContextProvider";
-import { useColorContext } from "../../contexts/ColorContextProvider";
+
 import { useNavigate } from "react-router-dom";
 
 function Navbar() {
@@ -40,7 +37,7 @@ function Navbar() {
     setThemeSettings,
   } = useStateContext();
 
-  const { navItemColorDark, navItemColorLight } = useColorContext();
+
 
   const searchCardList = useRef(null);
   const profileDropdown = useRef(null);
@@ -113,9 +110,7 @@ function Navbar() {
       setHideMenu(!hideMenu);
     }
   };
-  // const logout = () => {
-  //   setToken();
-  // };
+
 
   const handleDarkMode = () => {
     setModeOption(modeOption === "light" ? "dark" : "light");

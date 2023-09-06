@@ -1,12 +1,10 @@
-import React from "react";
-import { Link, Navigate } from "react-router-dom";
-import { useAuthContext } from "../contexts/AuthContextProvider";
+import { Link } from "react-router-dom";
+
 import { useColorContext } from "../contexts/ColorContextProvider";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 function SignUp() {
-  const { token, setToken, setUser } = useAuthContext();
   const { currentColor } = useColorContext();
 
   // Validation

@@ -5,10 +5,7 @@ import {
   AiOutlineShoppingCart,
 } from "react-icons/ai";
 
-import { IoSchoolOutline } from "react-icons/io5";
-import { BsHospital } from "react-icons/bs";
 import { BiCategory } from "react-icons/bi";
-import { LiaUsersCogSolid } from "react-icons/lia";
 import { MdOutlineErrorOutline, MdOutlineAccountCircle } from "react-icons/md";
 import { PiSignInBold } from "react-icons/pi";
 
