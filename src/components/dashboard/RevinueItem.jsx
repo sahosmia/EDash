@@ -1,4 +1,3 @@
-import React from "react";
 import Progressbar from "../core/Progressbar";
 function RevinueItem({ itemData }) {
   return (

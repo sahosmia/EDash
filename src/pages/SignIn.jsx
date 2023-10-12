@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useAuthContext } from "../contexts/AuthContextProvider";
-import { useColorContext } from "../contexts/ColorContextProvider";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { users } from "../data/dummy";
+import { useSelector } from "react-redux";
 
 function SignIn() {
   const { token, setToken, setUser } = useAuthContext();
-  const { currentColor } = useColorContext();
+  
+  const commonState = useSelector((state) => state.common);
+  const { currentColor } = commonState;
+
   const [errors, setErrors] = useState([]);
   // const user = {
   //   name: "sahos",

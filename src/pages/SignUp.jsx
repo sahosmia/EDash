@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 
-import { useColorContext } from "../contexts/ColorContextProvider";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useSelector } from "react-redux";
 
 function SignUp() {
-  const { currentColor } = useColorContext();
+  const commonState = useSelector((state) => state.common);
+  const { currentColor } = commonState;
 
   // Validation
   const SignUpSchema = Yup.object().shape({

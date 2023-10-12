@@ -1,14 +1,15 @@
-import { useColorContext } from "../../contexts/ColorContextProvider";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const SubMenuItem = ({ submenu }) => {
-  const { navItemColorDark, navItemColorLight, currentColor } =
-    useColorContext();
+  const theme = localStorage.theme;
+  const commonState = useSelector((state) => state.common);
+  const { navItemColorDark, navItemColorLight, currentColor } = commonState;
+  const dispatch = useDispatch();
 
   const [isHoverDropDown, setIsHoverDropDown] = useState(false);
 
-  const theme = localStorage.theme;
   return (
     <NavLink
       onMouseEnter={() => setIsHoverDropDown(true)}
@@ -19,7 +20,7 @@ const SubMenuItem = ({ submenu }) => {
         color:
           isActive || isHoverDropDown
             ? currentColor
-            : theme == "dark"
+            : theme === "dark" 
             ? navItemColorDark
             : navItemColorLight,
       })}

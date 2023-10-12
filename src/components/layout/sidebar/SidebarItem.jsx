@@ -1,33 +1,44 @@
-import React, { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { BiChevronDown, BiChevronUp } from "react-icons/bi";
-import { useStateContext } from "../../contexts/ContextProvider";
-import { useEffect } from "react";
+import { BiChevronUp } from "react-icons/bi";
+import { useSelector } from "react-redux";
+
+// Internal Import
 import SubMenuItem from "./SubMenuItem";
-import { useColorContext } from "../../contexts/ColorContextProvider";
 
 function SidebarItem({ menu }) {
-  const { activeMenu, iconMenu } = useStateContext();
-  const { navItemColorDark, navItemColorLight, currentColor } =
-    useColorContext();
+  const { subMenus, title, icon, url } = menu;
 
+  // redux
+  const commonState = useSelector((state) => state.common);
+  const {
+    iconMenu,
+    activeMenu,
+    navItemColorDark,
+    navItemColorLight,
+    currentColor,
+    
+  } = commonState;
+
+  // local state
   const [isDropDown, setIsDropDown] = useState(false);
-
   const [isHover, setIsHover] = useState(false);
 
+  // const
+const theme = localStorage.theme
+  // get url use location
   const location = useLocation();
-
   const { pathname } = location;
-  const pathInclude = pathname.includes(menu.url);
+  const pathInclude = pathname.includes(url);
+
+  // useEffect
   useEffect(() => {
     pathInclude && setIsDropDown(true);
-  }, []);
-
-  const theme = localStorage.theme;
+  }, [pathInclude]);
 
   return (
     <li className="mb-1">
-      {menu.subMenus ? (
+      {subMenus ? (
         <div
           className="group"
           onMouseEnter={() => setIsHover(true)}
@@ -37,11 +48,11 @@ function SidebarItem({ menu }) {
             onClick={() => setIsDropDown(!isDropDown)}
             style={{ color: (pathInclude || isHover) && currentColor }}
             className={`${
-              !pathInclude && "text-gray-500 dark:text-gray-200 "
+              !pathInclude && "text-gray-800 dark:text-gray-200 "
             } flex items-center gap-3 pl-4 text-sm font-medium  py-2 transition-all relative`}
           >
-            <span className="text-xl"> {menu.icon}</span>
-            {(activeMenu || !iconMenu) && menu.title}
+            <span className="text-xl"> {icon}</span>
+            {(activeMenu || !iconMenu) && title}
             {(activeMenu || !iconMenu || pathInclude) && (
               <div className={` absolute top-3 right-1`}>
                 <BiChevronUp
@@ -52,7 +63,7 @@ function SidebarItem({ menu }) {
           </div>
           {isDropDown && (activeMenu || !iconMenu) && (
             <ul className={`${isDropDown ? "h-auto" : "h-0"} transition-all`}>
-              {menu.subMenus.map((submenu, h) => (
+              {subMenus.map((submenu, h) => (
                 <li key={h}>
                   <SubMenuItem submenu={submenu} />
                 </li>
@@ -62,7 +73,7 @@ function SidebarItem({ menu }) {
         </div>
       ) : (
         <NavLink
-          to={menu.url}
+          to={url}
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
           style={({ isActive }) => ({
@@ -73,10 +84,10 @@ function SidebarItem({ menu }) {
                 ? navItemColorDark
                 : navItemColorLight,
           })}
-          className="flex items-center gap-3 pl-4 dark:text-red-800 text-sm font-medium  py-2 transition-all"
+          className="flex items-center gap-3 pl-4 text-gray-500 dark:text-gray-200 text-sm font-medium  py-2 transition-all"
         >
-          <span className="text-xl"> {menu.icon}</span>
-          {(activeMenu || !iconMenu) && menu.title}
+          <span className="text-xl"> {icon}</span>
+          {(activeMenu || !iconMenu) && title}
         </NavLink>
       )}
     </li>

@@ -1,4 +1,3 @@
-import React from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
 function Progressbar({ percentage, color }) {

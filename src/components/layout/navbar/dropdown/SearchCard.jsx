@@ -1,11 +1,15 @@
-import React, { useRef } from "react";
 import { IoClose } from "react-icons/io5";
-import { useStateContext } from "../../contexts/ContextProvider";
+import { useDispatch } from "react-redux";
+import { setSearchCard } from "../../../../features/common/commonSlice";
 
-function SearchCard({ onCloseSearchCard }) {
+function SearchCard() {
+  const dispatch = useDispatch();
   return (
     <>
-      <IoClose className="absolute top-4 right-4" onClick={onCloseSearchCard} />
+      <IoClose
+        className="absolute top-4 right-4"
+        onClick={() => dispatch(setSearchCard(false))}
+      />
       <div className="pb-5">
         <h6 className="text-gray-400 font-semibold pb-2 text-xs uppercase">
           Recent Search

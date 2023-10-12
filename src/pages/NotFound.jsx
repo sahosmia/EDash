@@ -1,6 +1,5 @@
-import React from "react";
 
-import { Link, Routes, Route, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function NotFound() {
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ function NotFound() {
             We lost this page
           </h1>
           <p className="mt-4 text-gray-500 dark:text-gray-400">
-            Sorry, the page you are looking for doesn't exist.
+            Sorry, the page you are looking for doesnt exist.
           </p>
 
           <div className="flex items-center mt-6 gap-x-3">
