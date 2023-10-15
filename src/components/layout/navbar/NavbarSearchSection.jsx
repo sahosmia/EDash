@@ -11,7 +11,7 @@ export default function NavbarSearchSection(props) {
   const { searchInput, searchCard } = commonState;
   const dispatch = useDispatch();
   return (
-    <div className="hidden md:flex items-center p-1 bg-gray-200 dark:bg-dark-light-bg shadow shadow-gray-200 dark:shadow-gray-900 ml-5 w-60 relative ">
+    <div className="hidden z-50 md:flex items-center p-1 bg-gray-200 dark:bg-dark-light-bg shadow shadow-gray-200 dark:shadow-gray-900 ml-5 w-60 relative ">
       <IoSearch className="mx-1 text-gray-600" />
       <input
         type="text"

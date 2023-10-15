@@ -51,17 +51,15 @@ function Navbar() {
 
     document.addEventListener("click", clickHandler);
     return () => document.removeEventListener("click", clickHandler);
-  });
+  }, [searchCard, searchCardList]);
 
-  useEffect(() => {
+  useEffect(() => {                 
     if (isDark) {
       document.documentElement.classList.add("dark");
       localStorage.theme = "dark";
-      console.log("dark");
     } else {
       document.documentElement.classList.remove("dark");
       localStorage.theme = "light";
-      console.log("light");
     }
   }, [isDark]);
 

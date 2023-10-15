@@ -4,7 +4,7 @@ export default function NavbarProfileDropdown(props) {
   return (
     <div ref={props.profileDropdown}>
       <div
-        className="flex items-center hover:cursor-pointer "
+        className="flex  items-center hover:cursor-pointer "
         onClick={() => props.setProfileDropdownCard(!props.profileDropdownCard)}
       >
         <img

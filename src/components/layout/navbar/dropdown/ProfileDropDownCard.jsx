@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function ProfileDropDownCard(props) {
   const navigate = useNavigate();
   return (
-    <div className=" absolute top-16 right-2 bg-white rounded shadow p-5 w-56 h-auto overflow-auto">
+    <div className="z-50 absolute top-16 right-2 bg-white rounded shadow p-5 w-56 h-auto overflow-auto">
       <ul className=" divide-y-2">
         <li
           className="py-2 pl-1 last:pb-0 first:pt-0 font-medium text-gray-600 flex items-center gap-1"

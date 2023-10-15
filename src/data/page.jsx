@@ -3,3 +3,7 @@ export { default as Category } from "../pages/Category";
 export { default as CategoryCreate } from "../pages/CategoryCreate";
 export { default as Profile } from "../pages/Profile";
 export { default as EditProfile } from "../pages/EditProfile";
+export { default as ProductList } from "../pages/ProductList";
+export { default as ProductCreate } from "../pages/ProductCreate";
+export { default as ProductDetails } from "../pages/ProductDetails";
+export { default as ProductUpdate } from "../pages/ProductUpdate";

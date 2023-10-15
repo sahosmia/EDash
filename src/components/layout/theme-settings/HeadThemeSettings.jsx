@@ -3,7 +3,7 @@ import { IoClose } from "react-icons/io5";
 import { FiSettings } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function HeadThemeSettings(props) {
+export default function HeadThemeSettings() {
   const commonState = useSelector((state) => state.common);
   const { currentColor } = commonState;
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function HeadThemeSettings(props) {
       </div>
       <IoClose
         className="text-2xl text-gray-100 cursor-pointer"
-        onClick={() => props.dispatch(themeSettingsFalse())}
+        onClick={() => dispatch(themeSettingsFalse())}
       />
     </div>
   );

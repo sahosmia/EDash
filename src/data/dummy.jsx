@@ -47,15 +47,23 @@ export const sideMenus = [
       {
         icon: <AiOutlineNodeIndex />,
         title: "Product",
-        url: "pages/product",
+        url: "pages/products",
         subMenus: [
           {
             title: "Product List",
-            url: "pages/product/list",
+            url: "pages/products/list",
           },
           {
             title: "Product Create",
-            url: "pages/product/create",
+            url: "pages/products/create",
+          },
+          {
+            title: "Product Update",
+            url: "pages/products/update/:id",
+          },
+          {
+            title: "Product Details",
+            url: "pages/products/:id",
           },
         ],
       },

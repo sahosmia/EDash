@@ -5,8 +5,11 @@ import {
   CategoryCreate,
   Profile,
   EditProfile,
+  ProductList,
+  ProductCreate,
+  ProductUpdate,
+  ProductDetails,
 } from "../data/page";
-
 
 export const backendRoute = [
   {
@@ -50,6 +53,26 @@ export const backendRoute = [
     title: "Product Create",
     component: CategoryCreate,
   },
+  {
+    path: "/pages/products/list",
+    title: "Product",
+    component: ProductList,
+  },
+  {
+    path: "/pages/products/create",
+    title: "Product Create",
+    component: ProductCreate,
+  },
+  {
+    path: "/pages/products/update/:id",
+    title: "Product Update",
+    component: ProductUpdate,
+  },
+  {
+    path: "/pages/products/:id",
+    title: "Product Details",
+    component: ProductDetails,
+  },
 ];
 
 export const frontRoute = [
@@ -59,5 +82,3 @@ export const frontRoute = [
     component: CategoryCreate,
   },
 ];
-
-

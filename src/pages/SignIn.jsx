@@ -39,14 +39,12 @@ function SignIn() {
           if (user.password == values.password) {
             setUser(user.name);
             setToken(user.id);
-            console.log(user);
           } else {
             setErrors(["Your password is wrong"]);
           }
         } else {
           setErrors(["Your email is not exist"]);
         }
-        console.log(errors);
       }
     },
   });
