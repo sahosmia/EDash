@@ -115,7 +115,7 @@ export const revinueDatas = [
     title: "Total Selas",
     val: "$975",
     progressVal: "82",
-    color: "#0f3460",
+    color: "#99B080",
   },
   {
     title: "Total Order",

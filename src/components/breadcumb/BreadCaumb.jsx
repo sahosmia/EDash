@@ -5,7 +5,6 @@ export default function BreadCaumb({
   title,
   parentTitle,
   parentUrl,
-  pageUrl,
   pageTitle,
   buttonGroup,
 }) {
@@ -16,8 +15,7 @@ export default function BreadCaumb({
         <BreadCumbList
           parentUrl={parentUrl}
           parentTitle={parentTitle}
-          pageUrl={pageUrl}
-          pageTitle={pageTitle}
+            pageTitle={pageTitle}
         />
       </div>
       <div className="mt-4 flex items-center gap-3 lg:mt-0">{buttonGroup}</div>

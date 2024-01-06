@@ -1,13 +1,10 @@
 import FilterSvg from "../svg/FilterSvg";
 import CloseSvg from "../svg/CloseSvg";
 
-export default function FilterModal({ filterModal, handleModal }) {
+export default function FilterModal({ handleModal }) {
   return (
-    <div className=" absolute bg-black bg-opacity-80 w-full h-screen top-0 left-0 ">
-      <div
-        ref={filterModal}
-        className="px-4 py-5  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-100 w-760 rounded shadow"
-      >
+    <div className=" fixed bg-black bg-opacity-80 w-full h-screen top-0 left-0 right-0 bottom-0">
+      <div className="px-4 py-5  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-100 w-760 rounded shadow">
         <div className="flex justify-between  items-center">
           <div className="flex items-center">
             <FilterSvg width="1.5em" height="1.5em"></FilterSvg>

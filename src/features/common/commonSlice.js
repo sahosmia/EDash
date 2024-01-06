@@ -15,8 +15,7 @@ const initialState = {
   notificationOption:false,
   searchInput:"",
   searchCard : false, 
-  limit:20,
-  limitArray: [10, 20, 30, 50, 100]
+
 }
 
 
@@ -100,9 +99,7 @@ export const commonSlice = createSlice({
    setSearchCard:(state, action)=>{
     state.searchCard = action.payload
    },
-   setLimit:(state, action)=>{
-    state.limit = action.payload
-   },
+
   }
 });
 
@@ -112,7 +109,7 @@ export const {
   hideMenuTrue, hideMenuFalse, hideMenuToggle, 
   activeMenuTrue, activeMenuFalse, activeMenuToggle, 
   themeSettingsTrue, themeSettingsFalse, themeSettingsToggle,
-  setCurrentColor, setScreenSize, setSearchInput, setSearchCard, setModeOption,setLimit
+  setCurrentColor, setScreenSize, setSearchInput, setSearchCard, setModeOption
 
 
 } = commonSlice.actions;

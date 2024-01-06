@@ -1,7 +1,7 @@
 import Progressbar from "../core/Progressbar";
 function RevinueItem({ itemData }) {
   return (
-    <div className="bg-white p-4 rounded shadow flex items-center justify-between">
+    <div className="bg-white dark:bg-gray-800 mt-5 p-4 rounded border-gray-200 dark:border-gray-700 border flex items-center justify-between">
       <div>
         <h4 className="font-bold text-sm text-gray-400 pb-5">{itemData.title}</h4>
         <h3
